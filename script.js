@@ -4,46 +4,44 @@ const map = new mapboxgl.Map({
     container: 'my-map', // map container ID
     style: 'mapbox://styles/chenjana/cmkyj8q7o00ak01s017y27pcb', //style URL
     center: [-79.4133, 43.7725], // starting position (middle of the mapped area)
-    zoom: 12, // starting zoom
+    zoom: 12, // starting zoom of the map
 });
 
-//Listen for load event, once map finishes loading, trigger the following functions
+// Load the map
 map.on('load', () => {
 
 // 1. ADD DATA SOURCES
     // Add a data source containing GeoJSON data
     map.addSource('Walking-Area-Data', {
         type: 'geojson',
-        data: 'https://JananChen.github.io/GGR472Lab2/data/walkingarea.geojson'
-        // Format for raw data link in online repo whilst still working on website - 'https://raw.githubusercontent.com/yourusername/respoitoryname/main/yourfile.geojson'
-        // Update to following format once website is published - //'https://yourusername.github.io/repositoryname/yourfile.geojson'
+        data: 'https://JananChen.github.io/GGR472Lab2/data/walkingarea.geojson' //Add walking area polygon data source path
     });
+    
     // Add a data source containing GeoJSON data
     map.addSource('Restaurants-Data', {
         type: 'geojson',
-        data: 'https://JananChen.github.io/GGR472Lab2/data/restaurants.geojson'
-        // Format for raw data link in online repo whilst still working on website - 'https://raw.githubusercontent.com/yourusername/respoitoryname/main/yourfile.geojson'
-        // Update to following format once website is published - //'https://yourusername.github.io/repositoryname/yourfile.geojson'
+        data: 'https://JananChen.github.io/GGR472Lab2/data/restaurants.geojson' //Add restaurants point data source path
     });
 // 2. VISUALIZE DATA LAYERS
     map.addLayer({
         'id': 'walking-ply',
-        'type': 'fill',
-        'source': 'Walking-Area-Data',
+        'type': 'fill', // Fill the entire polygon area with the chosen colour
+        'source': 'Walking-Area-Data', // Get data from the Walking-Area-Data data source
         'paint': {
-            'fill-opacity': 0.2,
-            'fill-color': '#ee3737',
-            'fill-outline-color': 'black'
+            'fill-opacity': 0.2, // Set opacity to make the polygon walking area boundary see-through
+            'fill-color': '#ee3737', // Set colour of the polygon to red
+            'fill-outline-color': 'black' // Make a black outline
         }
     });
-
+    
     map.addLayer({
         id: 'restaurants-pnt',
-        type: 'circle',
-        source: 'Restaurants-Data',
+        type: 'triangle', // Choose the symbol to be a triangle
+        source: 'Restaurants-Data', // Get data from the Restaurants-Data data source
         paint: {
-            'circle-radius': 20,
-            'circle-color': '#05df55'
+            'circle-radius': 5, // Set radius of restaurant points
+            'circle-color': '#05df55' // Set colour of restaurant points to green
         }
 
     });})
+
