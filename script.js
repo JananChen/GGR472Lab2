@@ -40,10 +40,11 @@ map.on('load', () => {
         source: 'Restaurants-Data', // Get data from the Restaurants-Data data source
         paint: {
             'circle-radius': 8, // Set radius of restaurant points
-            'circle-color': '#c9df05' // Set colour of restaurant points to green
+            'circle-color': '#c9df05' // Set colour of restaurant points to yellow
         }
 
     });})
+
 
 
 
