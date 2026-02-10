@@ -42,7 +42,8 @@ map.on('load', () => {
         type: 'circle',
         source: 'Restaurants-Data',
         paint: {
-            'circle-radius': 5,
+            'circle-radius': 20,
             'circle-color': '#05df55'
         }
+
     });})
