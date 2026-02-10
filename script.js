@@ -1,8 +1,8 @@
-mapboxgl.accessToken = 'pk.eyJ1IjoiY2hlbmphbmEiLCJhIjoiY21rNGdpc3BoMDdiNzNlb3Yxbm02dGpwOCJ9.xYpWe_CkRr_Oe_Q-DtaVYw'; //Add public map token from Mapbox account
+mapboxgl.accessToken = 'pk.eyJ1IjoiY2hlbmphbmEiLCJhIjoiY21rNGdpc3BoMDdiNzNlb3Yxbm02dGpwOCJ9.xYpWe_CkRr_Oe_Q-DtaVYw'; // Add public map token from Mapbox account
 
 const map = new mapboxgl.Map({
     container: 'my-map', // map container ID
-    style: 'mapbox://styles/chenjana/cmkyj8q7o00ak01s017y27pcb', //style URL
+    style: 'mapbox://styles/chenjana/cmkyj8q7o00ak01s017y27pcb', // style URL
     center: [-79.4133, 43.7725], // starting position (middle of the mapped area)
     zoom: 12, // starting zoom of the map
 });
@@ -14,13 +14,13 @@ map.on('load', () => {
     // Add a data source containing GeoJSON data
     map.addSource('Walking-Area-Data', {
         type: 'geojson',
-        data: 'https://JananChen.github.io/GGR472Lab2/data/walkingarea.geojson' //Add walking area polygon data source path
+        data: 'https://JananChen.github.io/GGR472Lab2/data/walkingarea.geojson' // Add walking area polygon data source path
     });
     
     // Add a data source containing GeoJSON data
     map.addSource('Restaurants-Data', {
         type: 'geojson',
-        data: 'https://JananChen.github.io/GGR472Lab2/data/restaurants.geojson' //Add restaurants point data source path
+        data: 'https://JananChen.github.io/GGR472Lab2/data/restaurants.geojson' // Add restaurants point data source path
     });
 // 2. VISUALIZE DATA LAYERS
     map.addLayer({
@@ -30,7 +30,7 @@ map.on('load', () => {
         'paint': {
             'fill-opacity': 0.2, // Set opacity to make the polygon walking area boundary see-through
             'fill-color': '#ee3737', // Set colour of the polygon to red
-            'fill-outline-color': 'black' // Make a black outline
+            'fill-outline-color': 'black' // Make a black outline around polyon layer
         }
     });
     
@@ -44,5 +44,6 @@ map.on('load', () => {
         }
 
     });})
+
 
 
